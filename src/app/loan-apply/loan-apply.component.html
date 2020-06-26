@@ -1,0 +1,67 @@
+<div class="loanView">
+  <div class="loanHeaderView" [ngStyle]="{'background-image':'url(/assets/blue_bg.png)'}">
+    <p class="loanTxt">APPLY FOR LOAN</p>
+    <p class="loanDetail">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+      Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+      galley of type and scrambled it to make a type specimen book.</p>
+  </div>
+  <div class="loanBody">
+    <div class="loanContentHeader">
+      <p class="contentLoanTxt">SHORT TERM LOAN</p>
+    </div>
+    <div class="loanContentBody">
+      <p class="twoStepAwayTxt">YOUR LOAN IS JUST 2 STEPS AWAY</p>
+      <p class="disbursalTxt">QUICK, SIMPLE AND EASY TO APPLY. DISBURSAL IN FEW HOURS. 100% ONLINE PROCESS</p>
+      <img class="paperlessImage" [src]="instantImageUrl">
+      <p class="twoStepTxt">Instant Disbusrement</p>
+      <img class="arrowImage" [src]="arrowImageUrl">
+      <img class="instantImage" [src]="paperlessImageUrl">
+      <p class="oneStepTxt">Paperless Process</p>
+
+      <div class="applyLoanView" *ngIf="!loanSuccess">
+        <p class="loanAmtTxt">Loan Amount </p>
+        <ng5-slider class="loanAmtRange" [(value)]="loanInitalAmount" [options]="loanAmountOptions"></ng5-slider>
+        <!-- <input class="loanAmt" type="number" min="{{loanAmountOptions.floor}}" max="{{loanAmountOptions.ceil}}"
+          [(ngModel)]="loanInitalAmount"> -->
+
+        <p class="loanPeriodTxt">Term <span> (in Years)</span></p>
+        <ng5-slider class="loanPeriodRange" [(value)]="loanInitalPeriod" [options]="loanPeriodOptions"></ng5-slider>
+
+        <!--<p class="estFeeTxt" >Establishment Fee <span> (%)</span></p>
+        <ng5-slider class="estFeeRange" [(value)]="estFeePeriod" [options]="estFeeOptions"></ng5-slider>
+
+        <p class="monthlyFeeTxt" >Monthly Fee <span> (%)</span></p>
+        <ng5-slider class="monthlyFeeRange" [(value)]="monthlyFeePeriod" [options]="monthlyFeeOptions"></ng5-slider>-->
+
+        <button class="loanBackBtn" (click)="BackToLoan()">BACK</button>
+        <button class="applyLoanBtn" *ngIf="!isLoading" (click)="ApplyLoan()">APPLY</button>
+        <div class="loader" *ngIf="isLoading"></div>
+      </div>
+      <div class="applyLoanView" *ngIf="loanSuccess">
+        <div class="paperlessView">
+          <p style="color: #8bc34a;">PAPERLESS PROCESS</p>
+          <span>THIS IS WHAT YOU GET WHEN YOU APPLY WITH US</span>
+        </div>
+        <div class="congratulationView">
+          <p style="color:#42a0ef;">CONGRATULATIONS!!!</p>
+          <span>YOUR LOAN APPLICATION IS SUBMITTED</span>
+        </div>
+        <p class="paperlessMsg1"><img class="tickInPara" [src]="tickImgUrl"> A 100% Paperless Personal Loan Experience
+        </p>
+        <p class="paperlessMsg2"><img class="tickInPara" [src]="tickImgUrl"> Instant eApproval</p>
+        <p class="paperlessMsg3"><img class="tickInPara" [src]="tickImgUrl"> Repayable in a Tenure of 12 months to 60
+          months</p>
+        <p class="paperlessMsg4"><img class="tickInPara" [src]="tickImgUrl"> Interest Rate Starting from 10.5% p.a</p>
+
+        <img class="tickImg" [src]="tickImgUrl">
+        <p class="loanAmountTxt">Loan Amount</p>
+        <p class="loanAmount">{{loanInitalAmount}}</p>
+        <div class="seperator"></div>
+        <p class="tenureTxt">Term</p>
+        <p class="tenure">{{loanInitalPeriod}} Years</p>
+
+        <button class="doneBtn" (click)="BackToLoan()">DONE</button>
+      </div>
+    </div>
+  </div>
+</div>
